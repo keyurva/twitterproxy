@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitter Proxy Test</title>
+
+  <body style="font-family: Arial Unicode MS,Arial,sans-serif;">    
+    <h1>Twitter Proxy Test</h1>
+
+    <h2>Sign In</h2>
+
+    <div>
+      If you're not signed in to twitter through this app, signin using this URL: 
+      <a href="${contextPath}/signin">${contextPath}/signin</a>
+      <br/><br/>
+    </div>
+
+    <div>
+      To force login, use this URL: <a href="${contextPath}/signin?force_login=true">${contextPath}/signin?force_login=true</a>
+    </div>
+
+    <h2>Search</h2>
+
+    <div>
+      Once signed in, you can invoke the <a href="https://dev.twitter.com/docs/api/1.1/get/search/tweets">twitter search API</a> by submitting a GET request to <code>${contextPath}/proxy/1.1/search/tweets.json</code>
+      <br/><br/>
+      You can test this by submitting the form below (inspect the HTTP traffic for actual request): <br/><br/>
+      <form action="${contextPath}/proxy/1.1/search/tweets.json" method="get">
+        <input type="text" name="q" size="50" /> <input type="submit" value="Search" />
+      </form>
+    </div>
+
+    <h2>Tweet</h2>
+
+    <div>
+      Also, once signed in and if your app has the required permissions, you can invoke the <a href="https://dev.twitter.com/docs/api/1.1/post/statuses/update">twitter status update API</a> by submitting a POST request to <code>${contextPath}/proxy/1.1/statuses/update.json</code>
+      <br/><br/>
+      You can test this by submitting the form below (inspect the HTTP traffic for actual request): <br/><br/>
+      <b>NOTE: Submitting the form below will post a status update (tweet) on your behalf</b><br/><br/>
+      <form action="${contextPath}/proxy/1.1/statuses/update.json" method="post">
+        <input type="text" name="status" size="50" /> <input type="submit" value="Tweet" />
+      </form>
+    </div>    
+
+  </body>
+</html>

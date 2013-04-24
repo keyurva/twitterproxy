@@ -1,0 +1,7 @@
+bin
+target
+project/project
+testresources
+.cache
+.classpath
+.project
