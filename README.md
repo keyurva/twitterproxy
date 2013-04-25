@@ -4,6 +4,12 @@
 
 Once configured with a key and secret to a registered twitter app, `twitterproxy` uses OAuth to sign in users with their twitter account. Once signed in, it can proxy requests to the twitter API on behalf of the signed in user.
 
+A test instance is deployed on heroku:
+
+[http://twitterproxyapp.herokuapp.com/](http://twitterproxyapp.herokuapp.com/)
+
+> Note that this is a free instance which means that the first request could trigger deployment and the page may take a few seconds to load.
+
 Signing in results in an access token and secret for the user. This is encoded and set in a cookie which is then used when invoking the twitter API. This cookie is set on the root domain which means any app on that domain can use the proxy.
 
 > Note that if you use the project as-is, the cookie will not be encrypted. Encoding the token and secret in plaintext is not recommended. Developers are encouraged to provide a strong implementation of the ``twitterproxy.Crypto`` interface to support encryption / decryption. Alternatively, the token and secret can be persisted on the server.
